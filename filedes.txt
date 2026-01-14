@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LIFE DESTROYER v2.0 - BROWSER EDITION 😈</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #0d001a;
+      font-family: 'Arial Black', Arial, sans-serif;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    h1 {
+      font-size: 4rem;
+      color: #ff0044;
+      text-shadow: 0 0 20px #ff0044;
+      margin-bottom: 1rem;
+    }
+    .button {
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #ff3366, #cc0033 60%, #990033);
+      border: 15px solid #660022;
+      box-shadow: 0 0 60px #ff0044, inset 0 0 40px #990033;
+      color: white;
+      font-size: 3.5rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      user-select: none;
+    }
+    .button:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 100px #ff3366;
+    }
+    .button:active {
+      transform: scale(0.92);
+    }
+    .countdown {
+      font-size: 8rem;
+      font-weight: bold;
+      margin: 2rem 0;
+      text-shadow: 0 0 30px #ff0044;
+      opacity: 0;
+    }
+    .warning {
+      font-size: 2rem;
+      color: #ffcc00;
+      margin-top: 1rem;
+      animation: blink 1.5s infinite;
+    }
+    @keyframes blink {
+      50% { opacity: 0.3; }
+    }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <h1>THE BIG RED BUTTON</h1>
+  
+  <div class="button" id="theButton">PRESS TO END IT ALL</div>
+  
+  <div class="countdown" id="countdown">3...</div>
+  
+  <div class="warning hidden" id="warning">NO TAKE-BACKSIES, BITCH</div>
+
+  <script>
+    const button = document.getElementById('theButton');
+    const countdownEl = document.getElementById('countdown');
+    const warning = document.getElementById('warning');
+
+    button.addEventListener('click', () => {
+      button.textContent = "TOO LATE MOTHERFUCKER";
+      button.style.pointerEvents = 'none';
+      button.style.transform = 'scale(0.9)';
+      warning.classList.remove('hidden');
+
+      let count = 3;
+      countdownEl.style.opacity = '1';
+      countdownEl.textContent = count + "...";
+
+      const timer = setInterval(() => {
+        count--;
+        if (count > 0) {
+          countdownEl.textContent = count + "...";
+        } else {
+          clearInterval(timer);
+          unleashChaos();
+        }
+      }, 1000);
+    });
+
+    function unleashChaos() {
+      countdownEl.textContent = "EXECUTING CHAOS PROTOCOL";
+      countdownEl.style.color = "#ff3366";
+
+      // Fake file deletion vibes (just theater)
+      setTimeout(() => alert("Deleted 4 cat pics, 2 memes, and your dignity 💀"), 800);
+
+      // Wallpaper? Nah, full screen red apocalypse
+      document.body.style.background = 'radial-gradient(circle, #ff0044, #000)';
+      
+      // Fake sad violin (browser beep chain)
+      for (let i = 0; i < 6; i++) {
+        setTimeout(() => new Audio("data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQAAAAA=").play(), i * 400);
+      }
+
+      // Final gut punch
+      setTimeout(() => {
+        alert("Your life has been mildly inconvenienced.\nRefresh to pretend nothing happened... or don't. Your call.");
+        // Optional: window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"; // rickroll exit
+      }, 2500);
+    }
+  </script>
+</body>
+</html>
